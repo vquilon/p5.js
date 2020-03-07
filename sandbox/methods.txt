@@ -1,0 +1,33 @@
+Method 1
+	dt = 1
+	acc = 0.2
+	vel = 0
+	pos = 100
+
+	draw: 1
+		update: 1
+			vel += acc*dt
+			pos += vel*dt
+
+
+Method 2
+	dt = 50
+	acc = 0.2/100
+	vel = 0
+	pos = 100
+
+	for: dt veces
+		update : dt veces
+			vel1 = acc0
+			pos1 = vel1 + pos0 = acc0 + pos0
+			...
+			vel2 = acc0 + vel1 = acc0*2
+			pos2 = vel2 + vel1 + pos0 = acc0*2 + acc0 + pos0 = acc0*3 + pos0
+			...
+			vel3 = acc0 + vel2 = acc0*3
+			pos3 = vel3 + pos2 = acc0*3 + acc0*2 + acc0 + pos0 = acc0*6 + pos0
+			.
+			.
+			.
+			vel dt = acc0 + acc0*(dt-1) = acc0*dt
+			pos dt = acc0*dt + acc0*(dt-1) + pos0 = acc0*dt + acc0*dt - acc0 + pos0 = 2*acc0*dt - acc0 + pos0 = acc0*dt + pos dt-1

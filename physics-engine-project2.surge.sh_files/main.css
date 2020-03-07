@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+canvas {
+	margin: 60px auto 0px auto;
+	outline: 1px solid #ccc;
+	display: block;
+	width: 900px;
+	height: 500px;
+}
+
+#stats {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 9999999;
+}
+
+.navbar-right {
+	position: fixed;
+	right: 100px;
+	top: 0px;
+}
