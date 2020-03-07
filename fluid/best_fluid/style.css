@@ -1,0 +1,29 @@
+
+html,body {
+	margin:5px;
+	padding:0px;
+
+	font-family: "Arial", sans-serif;
+}
+
+
+
+#fluid_container {
+	display:inline-block;
+	margin:4px;
+	border:1px solid #333;
+}
+
+.button {
+	display:block;
+	width:120px;
+
+	background-color:#ccc;
+	padding:4px;
+	text-align:center;
+
+	cursor:pointer;
+	border:1px solid #999;
+}
+
+

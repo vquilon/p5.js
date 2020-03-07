@@ -1,0 +1,13 @@
+<html><head>
+	<title>Javascript 2D Fluid / Turbulence Sim - Dean Alex</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="fluid.js"></script>
+</head>
+<body onload="fluid.init()">
+<div id="fluid_container"></div>
+
+<a onclick="fluid.resetVelocity();" class="button">Reset Velocities</a><br>
+<input type="checkbox" name="enableEmitter" onclick="fluid.clickCheckbox(this);" checked="">Emitter<br>
+<input type="checkbox" name="enableFrameDragging" onclick="fluid.clickCheckbox(this);" checked="">Frame Dragging<br>
+
+</body></html>

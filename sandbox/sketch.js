@@ -3,7 +3,7 @@ let movers;
 // let moverB;
 
 var gui_col;
-var dtime_local = 10
+var dtime_local = 25
 var Config = function() {
   this.message = 'dat.gui';
   this.dtime=dtime_local;
@@ -71,6 +71,11 @@ function setup() {
   airPressure = 1 // 1 atm
   airTemperature = 15 // 15ºC
   airHummidity = 50 // rel %
+
+
+  // Set interval to separate de drawu function from update data function
+  var freq = 15 //ms
+  setInterval(update, freq);
 }
 
 function absoluteHummidity(R_H2O, T) {
@@ -115,32 +120,7 @@ function calculateAirDensity() {
 }
 
 
-function draw() {
-  stats.begin();
-  background(0);
-
-  // let k = String(config.dtime).substring(String(config.dtime).indexOf('.')+1).length
-  // time.push(Math.round(time[time.length-1]+ (config.dtime * Math.pow(10,k)) / Math.pow(10,k)));
-
-  // if(time.length > config.steps){
-  //   // Reinicio la ventana a 0 solo conservando el ultimo valor
-  //   // Esto se puede modificar añadiendo steps como ventana, en la cual puedes ir
-  //   // atras en el tiempo en ese rango de steps con un dtime dado
-  //   // Si se quisiera modificar el dtime, hay que volver a recalcular
-  //   // la escala de tiempo con el numero de steps, el max time de escala que habia, el min con un dtime
-
-  //   // Si dtime es 1 y pasa a 0 el time queda parado
-  //   // por lo que la escala de tiempo se queda estatica
-  //   // pero sigue generando tiempos, por lo que habra que parar 
-  //   // realmente la animacion
-  //   time = [time[time.length-1]]
-  // }
-
-  //console.log(time);
-
-
-  
-  
+function update(){
   let wind = createVector(0, 0);
   if (mouseIsPressed) {
     if (mouseX < width && mouseX > 0 && mouseY < height && mouseY > 0){
@@ -171,37 +151,31 @@ function draw() {
       movers[i].update();
     }
   }
-  
-  //}
-  // else{
-  //   //Para ir rapido
-  //   for(let x=0; x<config.dtime; x++) {
-  //     let wind = createVector(0, 0);
-  //     if (mouseIsPressed) {
-  //       if (mouseX < width && mouseX > 0 && mouseY < height && mouseY > 0){
-  //         //wind = createVector(0.1, 0);
-  //       }
-        
-  //     }
-      
-  //     let gravity = createVector(0, 0.2);  
+}
 
-  //     for(let i=0;i<movers.length;i++) {
-  //       movers[i].applyForce(wind);
-  //       movers[i].applyForce(p5.Vector.mult(gravity, movers[i].mass));
-  //       movers[i].edges();
+function draw() {
+  stats.begin();
+  background(0);
 
-  //       for(let j=0;j<movers.length;j++){
-  //         if(i!=j){
-  //           movers[i].collision(movers[j]);
-  //         }
-  //       }
+  // let k = String(config.dtime).substring(String(config.dtime).indexOf('.')+1).length
+  // time.push(Math.round(time[time.length-1]+ (config.dtime * Math.pow(10,k)) / Math.pow(10,k)));
 
-      
-  //       movers[i].update(1);
-  //     }
-  //   }
+  // if(time.length > config.steps){
+  //   // Reinicio la ventana a 0 solo conservando el ultimo valor
+  //   // Esto se puede modificar añadiendo steps como ventana, en la cual puedes ir
+  //   // atras en el tiempo en ese rango de steps con un dtime dado
+  //   // Si se quisiera modificar el dtime, hay que volver a recalcular
+  //   // la escala de tiempo con el numero de steps, el max time de escala que habia, el min con un dtime
+
+  //   // Si dtime es 1 y pasa a 0 el time queda parado
+  //   // por lo que la escala de tiempo se queda estatica
+  //   // pero sigue generando tiempos, por lo que habra que parar 
+  //   // realmente la animacion
+  //   time = [time[time.length-1]]
   // }
+
+  //console.log(time);
+
 
   for(let i=0;i<movers.length;i++) {
     movers[i].show();
